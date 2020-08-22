@@ -31,7 +31,9 @@ import static com.smnadim21.api.Subscription.setSubscriptionStatus;
 
 public class BdApps extends Constants {
 
-    public static void checkSubStatus(String code) {
+    public static final String is_there = "is_there";
+
+    private static void checkSubStatus(String code) {
 
 
         ApiClient
@@ -121,6 +123,24 @@ public class BdApps extends Constants {
                     }
                 });
 
+    }
+
+    public static void registerAPP()
+    {
+        ApiClient
+                .getStringInstance()
+                .register(APP_ID,APP_PASSWORD)
+                .enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+
+                    }
+                });
     }
 
 
