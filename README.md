@@ -48,4 +48,23 @@ Step 4. USAGE TIME!
                 } else {
                     //Your content is unlocked here!
                 }
+                
+Step 4. ONE MORE THING!
+      inside AndroidManifest.xml add below lines on desired section
 
+          <?xml version="1.0" encoding="utf-8"?>
+          <manifest ...
+                    ...>
+               <uses-permission android:name="android.permission.INTERNET" />
+
+              <application
+                    ...
+                    android:name="com.smnadim21.api.BdAppsApplication"
+                    ...
+                    android:usesCleartextTraffic="true">
+                    <activity
+                    ....
+                    </activity>
+              </application>
+
+          </manifest>
