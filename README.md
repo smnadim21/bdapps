@@ -49,7 +49,7 @@ Step 4. USAGE TIME!
                     //Your content is unlocked here!
                 }
                 
-Step 4. ONE MORE THING!
+Step 5. ONE MORE THING!
       inside AndroidManifest.xml add below lines on desired section
 
           <?xml version="1.0" encoding="utf-8"?>
