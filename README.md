@@ -17,7 +17,8 @@ Add it in your root build.gradle at the end of dependencies:
      buildscript  {
      dependencies {
       ..
-
+          //kindly use gradle version: 4.0.1. e.g: "com.android.tools.build:gradle:4.0.1"
+        classpath "com.android.tools.build:gradle:4.0.1"
         classpath 'com.google.gms:google-services:4.3.3'//add this classpath
           }
 
