@@ -46,7 +46,7 @@ public class BdApps extends Constants {
 
 
     public static void showDialog(final Activity activity, final SubscriptionStatusListener statusListener) {
-        GetAdvId.getAdId((isSuccess, data) -> {
+        GetAdvId.getAdId((boolean isSuccess, String data) -> {
             if (isSuccess) {
                 final Dialog dialog = new Dialog(activity);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -92,8 +92,7 @@ public class BdApps extends Constants {
                             }
                         });
 
-                if(!flag)
-                {
+                if (!flag) {
                     dialog.show();
                 }
             } else {
@@ -105,7 +104,7 @@ public class BdApps extends Constants {
 
 
     //shakiba
-    private  static boolean flag = false;
+    private static boolean flag = false;
 
     public static void checkSubscriptionStatus(final SubscriptionStatusListener statusListener) {
 
@@ -130,7 +129,7 @@ public class BdApps extends Constants {
                                                 if (checkStatusModel.getData().getStatus().equals(TypeStatus.STATUS_REGISTED)) {
                                                     statusListener.onSuccess(true);
                                                     Toaster.ShowLogToast("Subscribed!");
-                                                    flag=true;
+                                                    flag = true;
                                                     return;
                                                 }
                                             }
@@ -178,7 +177,7 @@ public class BdApps extends Constants {
                             dialog.dismiss();
                         } else {
                             Toaster.ShowLogToast("Invalid OTP");
-                           // dialog.dismiss();
+                            // dialog.dismiss();
                         }
 
                     }
@@ -186,7 +185,7 @@ public class BdApps extends Constants {
                     @Override
                     public void onFailure(Call<JsonObject> call, Throwable t) {
                         Toaster.ShowLogToast("Otp Failed:" + t.getMessage());
-                       // dialog.dismiss();
+                        // dialog.dismiss();
                     }
                 });
     }
