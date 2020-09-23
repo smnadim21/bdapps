@@ -47,7 +47,7 @@ Step 2. Add compile in your module build.gradle at the end of android:
 Add the dependency    
 
     dependencies {
-                implementation 'com.github.smnadim21:bdapps:0.0.3'
+                implementation 'com.github.smnadim21:bdapps:0.0.4'
       }
     
 Step 3.Implement SubscriptionStatusListener.
