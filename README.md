@@ -80,6 +80,7 @@ Step 4. Register Your App with server.
 
         Constants.MSG_TEXT = "start whatever!";
         Constants.APP_ID = "APP_123456";
+        Constants.USSD = "2345";
         Constants.APP_PASSWORD = "Write Your App Password!";
         
         
@@ -94,7 +95,11 @@ Step 5. USAGE TIME!
          if(!flag)// this line checks if the content is locked or not
                 // your content is locked here
         {
-            BdApps.showDialog(this, MainActivity.this);// BdApps shows dialogue for charging!  [  pass Activity.this/ getActivity() / (Activity) context inside  as first parameter and Activity.this/Fragement.this as Second parameter in BdApps.showDialog() method! ]
+            BdApps.showDialog(this, MainActivity.this); // BdApps shows dialogue for charging! via SMS [  pass Activity.this/ getActivity() / (Activity) context inside  as first parameter and Activity.this/Fragement.this as Second parameter in BdApps.showDialog() method! ]
+            
+            or 
+            
+            BdApps.showDialogUSSD(this, MainActivity.this); // BdApps shows dialogue for charging! via USSD DIAL [  pass Activity.this/ getActivity() / (Activity) context inside  as first parameter and Activity.this/Fragement.this as Second parameter in BdApps.showDialog() method! ]
            
            } else {
                 //Your content is unlocked here!
