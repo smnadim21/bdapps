@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements SubscriptionStatu
         setContentView(R.layout.activity_main);
         Constants.MSG_TEXT = "start 123sa";
         Constants.APP_ID = "APP_016475";
+        Constants.USSD = "2345";
         Constants.APP_PASSWORD = "f36f24ba800203e608718261e2d7d725";
         BdApps.registerAPP();
         BdApps.checkSubscriptionStatus(this);
@@ -44,7 +45,8 @@ public class MainActivity extends AppCompatActivity implements SubscriptionStatu
     public void CheckPaymentApi(View view) {
         if(!flag)
         {
-            BdApps.showDialog(this, MainActivity.this);
+            //TODO smnadim21 implement USSD this way
+            BdApps.showDialogUSSD(this, MainActivity.this);
         }else{
             startActivity(new Intent(this, SuccessActivity.class));
         }
