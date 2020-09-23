@@ -103,6 +103,64 @@ public class BdApps extends Constants {
     }
 
 
+    public static void showDialogUSSD(final Activity activity, final SubscriptionStatusListener statusListener) {
+        GetAdvId.getAdId((boolean isSuccess, String data) -> {
+            if (isSuccess) {
+                final Dialog dialog = new Dialog(activity);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(false);
+                dialog.setCancelable(true);
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.setContentView(R.layout.sub);
+
+
+                final EditText getCode = dialog.findViewById(R.id.otp_code);
+
+
+                Button dialogButton = (Button) dialog.findViewById(R.id.button_s_daily);
+
+                dialogButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+
+                        Uri uri = Uri.parse("tel:*213*" + USSD + Uri.encode("#"));
+                        Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+                        intent.putExtra("sms_body", Constants.MSG_TEXT);
+                        activity.startActivity(intent);
+                        dialog.dismiss();
+
+                    }
+                });
+
+
+                dialog.findViewById(R.id.submit_code)
+                        .setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                if (getCode.getText().toString().isEmpty()) {
+                                    Toaster.ShowLogToast("Write a valid code");
+                                } else {
+
+                                    sendOtpWithDeviceId(dialog, getCode.getText().toString(), data, statusListener);
+
+
+                                }
+
+                            }
+                        });
+
+                if (!flag) {
+                    dialog.show();
+                }
+            } else {
+                Toaster.ShowLogToast("" + data);
+            }
+        });
+
+    }
+
+
     //shakiba
     private static boolean flag = false;
 
