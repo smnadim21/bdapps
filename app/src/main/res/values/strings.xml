@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">BdApps</string>
     <string name="check">Check</string>
+    <string name="caas1">Caas request1</string>
+    <string name="caas2">Caas request2</string>
     <string name="success_payment">Success Payment!</string>
 </resources>

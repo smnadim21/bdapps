@@ -131,7 +131,7 @@ Step 5. ONE MORE THING!
 
         import com.smnadim21.api.BdApps;
         import com.smnadim21.api.Constants;
-        import com.smnadim21.api.SubscriptionStatusListener;
+        import com.smnadim21.api.listener.SubscriptionStatusListener;
 
         public class MainActivity extends AppCompatActivity implements SubscriptionStatusListener {
 

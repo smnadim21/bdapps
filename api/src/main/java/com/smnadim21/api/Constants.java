@@ -9,12 +9,13 @@ public class Constants {
     public static String USSD = "1234";
     public static String WINDOW_TEXT = "অ্যাড রিমুভ করতে আপনার রবি অথবা এয়ারটেল সিম থেকে " + MSG_TEXT + " লিখে এসএমএস করুন ২১২১৩ নাম্বারে । চার্জ প্রতি দিন ২ টাকা";
 
-    public interface TypeStatus{
-         String STATUS_REGISTED="REGISTERED";
-         String STATUS_UNREGISTED="UNREGISTERED";
+    public interface TypeStatus {
+        String STATUS_REGISTED = "REGISTERED";
+        String STATUS_UNREGISTED = "UNREGISTERED";
     }
-    public interface TypeCode{
-        int RESPONSE_OK=200;
+
+    public interface TypeCode {
+        int RESPONSE_OK = 200;
     }
 
 }

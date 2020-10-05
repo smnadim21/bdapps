@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,13 +7,27 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/check"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/check"
+        android:layout_centerInParent="true"
         android:onClick="CheckPaymentApi"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/check" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/caas1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="CheckPaymentApi"
+        android:text="@string/caas1" />
+
+    <Button
+        android:id="@+id/caas2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="CheckPaymentApi"
+        android:layout_alignParentEnd="true"
+        android:text="@string/caas2"
+        android:layout_alignParentRight="true" />
+
+</RelativeLayout>
