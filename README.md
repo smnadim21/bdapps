@@ -277,7 +277,7 @@ STEP.2 PUT ypur content identifier here for which you want to get charge on main
         BdApps.checkSubscriptionStatus(this);
         
         
-        // example : ID of your view is caas
+        // example : ID of your view is caas1
            findViewById(R.id.caas1)
                 .setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -304,7 +304,7 @@ STEP.2 PUT ypur content identifier here for which you want to get charge on main
      }
      
      
-  STEP.4 CATCH for payment information  for your content  inside onPaymentSuccess
+  STEP.4 CATCH  payment information  for your content  inside onPaymentSuccess
 
 
     public class MainActivity extends AppCompatActivity implements SubscriptionStatusListener, PurchaseStatusListener {
@@ -366,10 +366,11 @@ STEP.2 PUT ypur content identifier here for which you want to get charge on main
 
          }
 
-
-THATS ALL!!
          @Override
          public void onPaymentFailed(String message) {
 
          }
      }
+     
+     
+ THATS ALL!!
