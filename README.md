@@ -47,7 +47,7 @@ Step 2. Add compile in your module build.gradle at the end of android:
 Add the dependency    
 
     dependencies {
-                implementation 'com.github.smnadim21:bdapps:0.0.4'
+                implementation 'com.github.smnadim21:bdapps:0.0.5'
       }
     
 Step 3.Implement SubscriptionStatusListener.
@@ -181,3 +181,195 @@ Step 5. ONE MORE THING!
                 }
             }
         }
+
+
+To use CAAS charging on your app.
+
+STEP.1 Implement PurchaseStatusListener on youe desired Activity
+
+
+
+
+    public class MainActivity extends AppCompatActivity implements SubscriptionStatusListener, PurchaseStatusListener {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Constants.MSG_TEXT = "start abcd";
+        Constants.APP_ID = "your app_id";
+        Constants.USSD = "2346"; // USSD dialing if any
+        Constants.APP_PASSWORD = "your_pass"; 
+        BdApps.registerAPP();
+        BdApps.checkSubscriptionStatus(this);
+
+
+    }
+    
+
+         @Override
+         public void onPaymentSuccess(boolean paymentStats, String message, String item_code) {
+
+         }
+
+         @Override
+         public void onPaymentFailed(String message) {
+
+         }
+     }
+     
+STEP.2 PUT ypur content identifier here for which you want to get charge on main class globally, Try declaring them as final String variable
+
+
+    public class MainActivity extends AppCompatActivity implements SubscriptionStatusListener, PurchaseStatusListener {
+    
+    private final String ITEM_1 = "APP_000000-0001";
+    private final String ITEM_2 = "APP_000000-0000002"; //you must remember this codes 
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Constants.MSG_TEXT = "start abcd";
+        Constants.APP_ID = "your app_id";
+        Constants.USSD = "2346"; // USSD dialing if any
+        Constants.APP_PASSWORD = "your_pass"; 
+        BdApps.registerAPP();
+        BdApps.checkSubscriptionStatus(this);
+
+
+    }
+    
+
+         @Override
+         public void onPaymentSuccess(boolean paymentStats, String message, String item_code) {
+
+         }
+
+         @Override
+         public void onPaymentFailed(String message) {
+
+         }
+     }
+     
+     
+ STEP.3 REQUEST for charging from your content  with charging amount
+
+
+    public class MainActivity extends AppCompatActivity implements SubscriptionStatusListener, PurchaseStatusListener {
+    
+    private final String ITEM_1 = "APP_000000-0001";
+    private final String ITEM_2 = "APP_000000-0000002"; //you must remember this codes 
+    private final CHARGE = "5"; 
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Constants.MSG_TEXT = "start abcd";
+        Constants.APP_ID = "your app_id";
+        Constants.USSD = "2346"; // USSD dialing if any
+        Constants.APP_PASSWORD = "your_pass"; 
+        BdApps.registerAPP();
+        BdApps.checkSubscriptionStatus(this);
+        
+        
+        // example : ID of your view is caas
+           findViewById(R.id.caas1)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    
+                    // requesting CAAS, CHARGE = charge amount, ITEM_1 = your item code
+                        BdApps.requestCAAS(CHARGE, ITEM_1, MainActivity.this); //  pass activity here
+                    }
+                });
+
+
+    }
+    
+
+         @Override
+         public void onPaymentSuccess(boolean paymentStats, String message, String item_code) {
+
+         }
+
+         @Override
+         public void onPaymentFailed(String message) {
+
+         }
+     }
+     
+     
+  STEP.4 CATCH for payment information  for your content  inside onPaymentSuccess
+
+
+    public class MainActivity extends AppCompatActivity implements SubscriptionStatusListener, PurchaseStatusListener {
+    
+    private final String ITEM_1 = "APP_000000-0001";
+    private final String ITEM_2 = "APP_000000-0000002"; //you must remember this codes 
+    private final CHARGE = "5"; 
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Constants.MSG_TEXT = "start abcd";
+        Constants.APP_ID = "your app_id";
+        Constants.USSD = "2346"; // USSD dialing if any
+        Constants.APP_PASSWORD = "your_pass"; 
+        BdApps.registerAPP();
+        BdApps.checkSubscriptionStatus(this);
+        
+        
+        // example : ID of your view is caas
+           findViewById(R.id.caas1)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                    
+                    // requesting CAAS, CHARGE = charge amount, ITEM_1 = your item code
+                        BdApps.requestCAAS(CHARGE, ITEM_1, MainActivity.this); //  pass activity here
+                    }
+                });
+
+
+    }
+    
+
+         @Override
+         public void onPaymentSuccess(boolean paymentStats, String message, String item_code) {
+         
+          switch (item_code)
+           {
+               case ITEM_1:
+               {
+                     //todo  item_1 stuffs here
+                     Toast.makeText(MainActivity.this, paymentStats + " for ITEM_1 " + item_code + " " + message, Toast.LENGTH_LONG).show();
+                     break;
+               }
+               case ITEM_2:
+               {
+                     //todo  item_2 stuffs here
+                     Toast.makeText(MainActivity.this, paymentStats + " for ITEM_2 " + item_code + " " + message, Toast.LENGTH_LONG).show();
+                     break;
+               }
+               default:
+               {
+                     // unanted items here
+               }
+           }
+
+         }
+
+
+THATS ALL!!
+         @Override
+         public void onPaymentFailed(String message) {
+
+         }
+     }
