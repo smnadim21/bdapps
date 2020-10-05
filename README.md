@@ -190,7 +190,7 @@ STEP.1 Implement PurchaseStatusListener on youe desired Activity
 
 
 
-    public class MainActivity extends AppCompatActivity implements SubscriptionStatusListener, PurchaseStatusListener {
+    public class MainActivity extends AppCompatActivity implements PurchaseStatusListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -222,7 +222,7 @@ STEP.1 Implement PurchaseStatusListener on youe desired Activity
 STEP.2 PUT ypur content identifier here for which you want to get charge on main class globally, Try declaring them as final String variable
 
 
-    public class MainActivity extends AppCompatActivity implements SubscriptionStatusListener, PurchaseStatusListener {
+    public class MainActivity extends AppCompatActivity implements PurchaseStatusListener {
     
     private final String ITEM_1 = "APP_000000-0001";
     private final String ITEM_2 = "APP_000000-0000002"; //you must remember this codes 
@@ -258,7 +258,7 @@ STEP.2 PUT ypur content identifier here for which you want to get charge on main
  STEP.3 REQUEST for charging from your content  with charging amount
 
 
-    public class MainActivity extends AppCompatActivity implements SubscriptionStatusListener, PurchaseStatusListener {
+    public class MainActivity extends AppCompatActivity implements PurchaseStatusListener {
     
     private final String ITEM_1 = "APP_000000-0001";
     private final String ITEM_2 = "APP_000000-0000002"; //you must remember this codes 
@@ -307,7 +307,7 @@ STEP.2 PUT ypur content identifier here for which you want to get charge on main
   STEP.4 CATCH  payment information  for your content  inside onPaymentSuccess
 
 
-    public class MainActivity extends AppCompatActivity implements SubscriptionStatusListener, PurchaseStatusListener {
+    public class MainActivity extends AppCompatActivity implements PurchaseStatusListener {
     
     private final String ITEM_1 = "APP_000000-0001";
     private final String ITEM_2 = "APP_000000-0000002"; //you must remember this codes 
