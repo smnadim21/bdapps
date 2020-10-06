@@ -14,8 +14,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-
-        <activity android:name="com.smnadim21.OtpActivate">
+        <activity android:name="com.smnadim21.ActivateOtp">
             <intent-filter android:label="Activate OTP">
                 <action android:name="android.intent.action.VIEW" />
 
@@ -27,6 +26,18 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
+     <!--   <activity android:name="com.smnadim21.api.activity.OtpActivate">
+            <intent-filter android:label="Activate OTP">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                &lt;!&ndash; Accepts URIs that begin with "http://activate”   android:host="gizmos" &ndash;&gt;
+                <data
+                    android:host="activate"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>-->
         <activity android:name="com.SuccessActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

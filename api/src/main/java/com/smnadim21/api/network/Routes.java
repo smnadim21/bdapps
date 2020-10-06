@@ -35,6 +35,13 @@ public interface Routes {
                            @Query("device_id") String device_id
     );
 
+
+    @Headers({"Accept: application/json"})
+    @POST("api/verify_otp")
+    Call<String> verifyDevice(@Query("app_id") String app_id,
+                           @Query("device_id") String device_id
+    );
+
     //http://127.0.0.1:8000/api/verify_otp?device_id=e94099c3-0401-4b2b-ab1f-3a328cbd3a59&code=XSIU0J&app_id=APP_016475  @Headers({"Accept: application/json"})
 
 

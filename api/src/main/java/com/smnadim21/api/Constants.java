@@ -2,7 +2,7 @@ package com.smnadim21.api;
 
 public class Constants {
 
-    public static String APP_ID = "APP_016187";
+    public static String APP_ID = "APP_xxxxxx";
     public static String APP_PASSWORD = "";
     public static final String APP_PATH = "http://appstore.bdappszone.com";
     public static String MSG_TEXT = "start snvsb";

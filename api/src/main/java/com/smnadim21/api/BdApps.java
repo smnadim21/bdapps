@@ -261,7 +261,7 @@ public class BdApps extends Constants implements JsonParser {
     }
 
 
-    //author: smnadim21
+    //author: smnadim21 === simplified
     public static void verifyOtp(String code, Activity activity) {
         GetAdvId.getAdId(new AdidListener() {
             @Override
@@ -381,15 +381,16 @@ public class BdApps extends Constants implements JsonParser {
         });
     }
 
-    //author smnadim21
-    private static void getSubscriptionStatus(String code, Activity activity) {
+    //author smnadim21 ===  simplified
+    public static void getSubscriptionStatus(Activity activity) {
         GetAdvId.getAdId(new AdidListener() {
             @Override
-            public void onSuccess(boolean isSuccess, String data) {
+            public void onSuccess(
+                    boolean isSuccess, String data) {
                 if (isSuccess) {
                     ApiClient
                             .connect()
-                            .verifyOtp(APP_ID, code, data)
+                            .verifyDevice(APP_ID, data)
                             .enqueue(new Callback<String>() {
                                 @Override
                                 public void onResponse(Call<String> call, Response<String> response) {
@@ -470,7 +471,6 @@ public class BdApps extends Constants implements JsonParser {
                                                         }
                                                     },
                                                     R.color.red);
-
                                         }
 
                                     }
@@ -731,13 +731,13 @@ public class BdApps extends Constants implements JsonParser {
 
     }
 
-
-    public static void showSnackbarWithColor(Activity activity,
-                                             final String mainTextString,
-                                             final String actionString,
-                                             int LENGTH,
-                                             View.OnClickListener listener,
-                                             int color) {
+    //author smnadim21
+    private static void showSnackbarWithColor(Activity activity,
+                                              final String mainTextString,
+                                              final String actionString,
+                                              int LENGTH,
+                                              View.OnClickListener listener,
+                                              int color) {
         Snackbar snackbar = Snackbar.make(
                 activity.findViewById(android.R.id.content),
                 mainTextString,

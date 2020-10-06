@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.smnadim21.api.activity.OtpActivate">
+    tools:context="com.smnadim21.ActivateOtp">
 
 </androidx.constraintlayout.widget.ConstraintLayout>
